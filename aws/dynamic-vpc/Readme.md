@@ -1,7 +1,7 @@
 ### We are provisioning a VPC with dynamic subnets creation, it demostrate the use of 
 - list
 - [count](https://www.terraform.io/intro/examples/count.html) parameter
-- [count.index]https://www.terraform.io/docs/configuration/functions/index.html(https://www.terraform.io/docs/configuration/functions/index.html)
+- [count.index](https://www.terraform.io/docs/configuration/functions/index.html(https://www.terraform.io/docs/configuration/functions/index.html)
 - [element](https://www.terraform.io/docs/configuration/functions/element.html)
 - [length](https://www.terraform.io/docs/configuration/functions/length.html)
 - [replace](https://www.terraform.io/docs/configuration/functions/replace.html)  function and also 
