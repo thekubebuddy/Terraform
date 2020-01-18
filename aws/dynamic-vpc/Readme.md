@@ -1,0 +1,2 @@
+* We are provisioning a VPC with dynamic subnets creation, it demostrate the use of list,count parameter, element, length, index  function and also datasources.
+* Each subnet will be created in different AZ dynamically were we used the datasource in vars.tf
