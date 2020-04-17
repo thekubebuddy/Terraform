@@ -1,5 +1,5 @@
 variable "image_name" {
-  default = "ubuntu:rolling"
+  default = "ubuntu@sha256:e9ccb229a23d2d51da337c78c4ba1fd844f476e4639cd0c91099d1b62b8f8a45"
 }
 
 variable "container_name" {
