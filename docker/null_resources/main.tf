@@ -6,7 +6,7 @@ resource "docker_image" "container_image" {
 
 resource "docker_container" "container_1" {
   name  = var.container_name
-  image = docker_image.container_image.name
+  image = docker_image.container_image.latest
   ports {
 
     internal = var.internal_port
