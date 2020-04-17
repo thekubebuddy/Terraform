@@ -1,5 +1,5 @@
 variable "image_name" {
-  default = " ubuntu:rolling"
+  default = "ubuntu:rolling"
 }
 
 variable "container_name" {
