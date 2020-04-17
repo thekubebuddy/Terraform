@@ -10,7 +10,7 @@ resource "docker_container" "container_1" {
   ports {
 
     internal = var.internal_port
-    external = lookup(var.external_port, var.env)
+    external = var.external_port
   }
   command = var.command
 }
