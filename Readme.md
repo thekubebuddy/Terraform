@@ -4,6 +4,12 @@ Table of Content
 * [Launch Aws ec2 instance with terraform\(hello-world\)](aws/hello-ec2)
 * [Launch simple VPC with terraform](aws/hello-vpc)
 * [Launch VPC with dynamic subnets provisioning terraform](aws/dynamic-vpc)
+* Terraform with docker
+	* [Maps and lookups]
+	* [Terraform workspaces]
+	* [\*\*Terraform "null_resource" and "local-exec/remote-exec" provisioner]
+	https://www.terraform.io/docs/providers/null/resource.html
+	https://www.terraform.io/docs/provisioners/remote-exec.html
 
 
 # About Terraform
@@ -60,6 +66,40 @@ variable "zones"
 
 * Terraform support three different types of format for variables: string, list, map
 
+
+
+# Output and Input variables for terraform
+```
+output "external_ip"
+{
+	value=ec2_instance.instance_name.external_ip
+}
+
+
+```
+```
+variable "instance_name"
+{
+	default="prod-ec2-instance"
+}
+```
+```
+terraform apply -ver 'instance_name=prod-ec2-instance-1'
+terraform destroy -ver 'instance_name=prod-ec2-instance-1'
+```
+
+
+# Terraform Workspaces
+Its becomes easy when you have two differnt environments to work-on with
+```
+terraform workspace
+terraform workspace list
+terraform workspace show
+terraform workspace new workspace1
+terraform workspace select workspace2
+```
+
+
 # Terraform cheetsheets
 ```
 terraform init
@@ -73,11 +113,18 @@ terraform taint #Manually marks a resource for recreation
 terraform untaint #Manually unmarks a resource as tainted
 terraform validate #Validates the Terraform files
 terraform version #Prints the Terraform version
-terraform workspace #Workspace management
+terraform -uninstall-autocomplete
+
+terraform plane -out=tfplan1
+terraform apply tfplan1
 
 export TF_LOG= 
 ```
-
+### bash autocomplete
+```
+terraform workspace #Workspace management
+terraform -install-autocomplete
+```
 * Reusable configurations called as module, that can be reused from other terraform script
 
 
