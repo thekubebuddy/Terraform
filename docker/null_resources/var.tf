@@ -1,9 +1,9 @@
 variable "image_name" {
-  default = "ubuntu"
+  default = " ubuntu:rolling"
 }
 
 variable "container_name" {
-  default = "ubuntu_workload"
+  default = "ubuntu_apache2_wokload"
 }
 variable "command" {
   default = ["/bin/sleep", "infinity"]

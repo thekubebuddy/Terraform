@@ -7,11 +7,11 @@ resource "docker_image" "container_image" {
 resource "docker_container" "container_1" {
   name  = var.container_name
   image = docker_image.container_image.name
-  # ports {
+  ports {
 
-  #   internal = var.internal_port
-  #   external = lookup(var.external_port, var.env)
-  # }
+    internal = var.internal_port
+    external = lookup(var.external_port, var.env)
+  }
   command = var.command
 }
 
