@@ -1,5 +1,5 @@
 variable "image_name" {
-  default = "ubuntu@sha256:e9ccb229a23d2d51da337c78c4ba1fd844f476e4639cd0c91099d1b62b8f8a45"
+  default = "ubuntu@sha256:acad929ffeda349d0e8c311baf841cc5251d228db7fae4b3f43e54bddbb743de"
 }
 
 variable "container_name" {
