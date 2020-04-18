@@ -5,7 +5,7 @@ resource "docker_image" "container_image" {
 
 
 resource "docker_container" "container_1" {
-  name  = var.container_name
+  name  = "${var.container_name}-${random_id.suffix.hex}"
   image = docker_image.container_image.latest
   ports {
 
