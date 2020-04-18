@@ -24,7 +24,7 @@ resource "null_resource" "null_id" {
 }
 
 resource "random_id" "suffix" {
-  byte = 2
+  byte_length = 2
 
 }
 
