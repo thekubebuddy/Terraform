@@ -36,6 +36,3 @@ resource "docker_volume" "jenkins_volume" {
 }
 
 
-
-
-
