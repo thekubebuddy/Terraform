@@ -20,7 +20,5 @@ resource "docker_container" "container_id" {
 
 output "container_ip" {
   value = docker_container.container_id.ip_address
-  lifecycle {
-    prevent_destroy = true
-  }
+
 }
