@@ -9,7 +9,8 @@ Table of Content
 	* [Terraform workspaces]
 	* [Deploying a an apache2 configured configured container with Terraform "null_resource" and "local-exec/remote-exec" provisioner]
 	* [Terraform "module" with dokcer]
-	* [Deploying terraform-infra with Jenkins(pipeline)+docker] 
+	* [Deploying terraform-infra with Jenkins(pipeline)+docker]
+	* [Deploying terraform resources with jenkins pipelines] 
 	https://www.terraform.io/docs/providers/null/resource.html
 	https://www.terraform.io/docs/provisioners/remote-exec.html
 	https://devops.ionos.com/community/provisioning-basics-with-terraform/
