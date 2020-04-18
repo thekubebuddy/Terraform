@@ -8,13 +8,13 @@ resource "docker_container" "blog_container" {
     "database_connection_password=var.mysql_root_password",
     "database_connection_database=var.ghost_db_name"
   ]
-  port {
+  ports {
     internal = "2368"
     external = var.ext_port
   }
   networks_advanced {
     name    = "${docker_network.public_bridge_network.name}"
-    aliases = ["${var.ghost_network_alias}"]
+    aliases = [var.ghost_network_alias]
   }
   networks_advanced {
     name    = "${docker_network.private_bridge_network.name}"
