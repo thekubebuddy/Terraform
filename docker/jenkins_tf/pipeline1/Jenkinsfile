@@ -1,7 +1,10 @@
 node {
+  git 'https://github.com/thekubebuddy/Terraform.git'
   if(action == 'Deploy') {
     stage('init') {
         sh """
+            pwd
+            ls -ltr
             terraform init
         """
     }
