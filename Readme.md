@@ -7,9 +7,11 @@ Table of Content
 * Terraform with docker
 	* [Maps and lookups]
 	* [Terraform workspaces]
-	* [\*\*Terraform "null_resource" and "local-exec/remote-exec" provisioner]
+	* [Deploying a an apache2 configured configured container with Terraform "null_resource" and "local-exec/remote-exec" provisioner]
+
 	https://www.terraform.io/docs/providers/null/resource.html
 	https://www.terraform.io/docs/provisioners/remote-exec.html
+	https://devops.ionos.com/community/provisioning-basics-with-terraform/
 
 
 # About Terraform
@@ -114,6 +116,7 @@ terraform untaint #Manually unmarks a resource as tainted
 terraform validate #Validates the Terraform files
 terraform version #Prints the Terraform version
 terraform -uninstall-autocomplete
+terraform -install-autocomplete
 
 terraform plane -out=tfplan1
 terraform apply tfplan1

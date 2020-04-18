@@ -17,10 +17,14 @@ resource "docker_container" "container_1" {
 
 resource "null_resource" "null_id" {
   provisioner "local-exec" {
-    # command = "echo ${docker_container.container_1.name}:${docker_container.container_1.ip_address} >> docker_container.info"
     command = "docker cp ./bootstrap.sh ${docker_container.container_1.name}:/tmp/ && docker exec ${docker_container.container_1.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log && docker cp ./index.html ${docker_container.container_1.name}:/var/www/html/"
 
   }
+
+}
+
+resource "random_id" "suffix" {
+  byte = 2
 
 }
 
