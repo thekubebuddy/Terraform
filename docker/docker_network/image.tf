@@ -1,5 +1,5 @@
 resource "docker_image" "ghost_image" {
-  name         = "ghost:latest"
+  name         = "ghost:3.0.3"
   keep_locally = true
 }
 
