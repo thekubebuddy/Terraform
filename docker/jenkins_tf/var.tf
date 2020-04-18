@@ -1,5 +1,5 @@
 variable "image_name" {
-  default = "jenkins:tfv1.0"
+  default = "jenkins_tf:1.0"
 }
 
 
