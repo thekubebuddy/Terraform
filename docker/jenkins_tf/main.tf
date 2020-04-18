@@ -30,6 +30,9 @@ resource "docker_container" "jenkins_container" {
 # It will create a volume in /var/lib/docker/volumes/
 resource "docker_volume" "jenkins_volume" {
   name = "jenkins_data"
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 
