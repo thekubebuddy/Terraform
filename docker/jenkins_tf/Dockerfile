@@ -5,5 +5,5 @@ RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID"
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
 RUN apt-get update -y
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io
-RUN curl -O https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip && unzip terraform_0.11.13_linux_amd64.zip -d /usr/local/bin/
+RUN curl -O https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.124_linux_amd64.zip && unzip terraform_0.12.24_linux_amd64.zip -d /usr/local/bin/
 USER ${user}
