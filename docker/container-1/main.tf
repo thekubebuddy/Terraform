@@ -13,10 +13,14 @@ resource "docker_container" "container_id" {
     internal = "2368"
     external = "8081"
   }
+
 }
 
 
 
 output "container_ip" {
   value = docker_container.container_id.ip_address
+  lifecycle {
+    prevent_destroy = true
+  }
 }
