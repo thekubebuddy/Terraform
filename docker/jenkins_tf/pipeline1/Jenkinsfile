@@ -1,5 +1,5 @@
 node {
-  // git 'https://github.com/thekubebuddy/Terraform.git'
+  git 'https://github.com/thekubebuddy/Terraform.git'
   if(action == 'Deploy') {
     stage('init') {
         sh """
