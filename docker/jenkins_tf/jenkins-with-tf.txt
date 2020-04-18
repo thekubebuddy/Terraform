@@ -1,0 +1,5 @@
+cd docker/container-1
+terraform version
+terraform init
+terraform validate
+terraform apply -auto-approve
