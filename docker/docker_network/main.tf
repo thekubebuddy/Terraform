@@ -8,7 +8,7 @@ resource "docker_container" "blog_container" {
     "database_connection_password=var.mysql_root_password",
     "database_connection_database=var.ghost_db_name"
   ]
-  ports = {
+  port = {
     internal = "2368"
     external = var.ext_port
   }
