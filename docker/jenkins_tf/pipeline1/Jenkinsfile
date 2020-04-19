@@ -1,4 +1,5 @@
 node {
+  // Pull the repository from git
   git 'https://github.com/thekubebuddy/Terraform.git'
   if(action == 'Deploy') {
     stage('init') {
@@ -7,19 +8,23 @@ node {
             ls -ltr
             terraform init
         """
-        deleteDir()
     }
     stage('plan') {
-      // sh label: 'terraform plan', script: "terraform plan -out=tfplan -input=false -var image_name=${image_name} -var ext_port=${ext_port}"
-      // script {
-          // timeout(time: 10, unit: 'MINUTES') {
-              // input(id: "Deploy Gate", message: "Deploy environment?", ok: 'Deploy')
-          // }
-      // }
+      sh label: 'terraform plan', script: "terraform plan -out=tfplan -input=false -var image_name=${image_name} -var ext_port=${ext_port}"
+      script {
+          timeout(time: 10, unit: 'MINUTES') {
+              input(id: "Deploy Gate", message: "Deploy environment?", ok: 'Deploy')
+          }
+      }
     }
     stage('apply') {
+
         // sh label: 'terraform apply', script: "terraform apply -lock=false -input=false tfplan"
     }
+    
+    // Finally delete the workspace  
+    deleteDir()
+  
   }
 
   if(action == 'Destroy') {
