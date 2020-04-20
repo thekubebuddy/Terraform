@@ -1,12 +1,6 @@
 module "image" {
-  source = "../image"
-  dynamic "image_name" {
-    for_each = var.image_name
-    content {
-      image_name = image_name.value
-    }
-  }
-
+  source     = "../image"
+  image_name = ["${var.image_name}"]
 }
 
 
