@@ -1,6 +1,6 @@
 module "image" {
   source     = "../image"
-  image_name = "${var.image_name}"
+  image_name = [for name in "${var.image_name}" : name]
 }
 
 
