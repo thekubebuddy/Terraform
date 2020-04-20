@@ -1,7 +1,7 @@
 module "image" {
   source     = "../image"
   count      = length(var.image_name)
-  image_name = var.image_name[count.index]
+  image_name = "${var.image_name[count.index]}"
 }
 
 
