@@ -1,6 +1,6 @@
-variable "image_name" {
+variable "list_of_images" {
   description = "describe your variable"
-  default     = "ghost:alpine"
+  default     = ["ghost:alpine", "ghost:latest"]
 }
 
 variable "container_name" {
