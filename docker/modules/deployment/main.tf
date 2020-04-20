@@ -4,10 +4,7 @@ module "image_1" {
   image_name = [for image in var.list_of_images : image]
 }
 
-module "image_2" {
-  source     = "../image"
-  image_name = var.list_of_images[1]
-}
+
 
 module "ghost_container" {
   source         = "../container"
