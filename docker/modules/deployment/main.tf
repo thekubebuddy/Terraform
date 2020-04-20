@@ -1,6 +1,6 @@
 module "image" {
   source     = "../image"
-  count      = var.count
+  count      = var.my_count
   image_name = "${var.list_of_images[count.index % length(var.list_of_images)]}"
 }
 

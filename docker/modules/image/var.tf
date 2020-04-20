@@ -4,7 +4,7 @@ variable "list_of_images" {
 
 }
 
-variable "count" {
+variable "my_count" {
   description = "describe your variable"
   default     = 2
 }
