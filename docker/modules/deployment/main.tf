@@ -1,6 +1,6 @@
 module "image" {
-  source = "../image"
-  image  = var.image_name
+  source     = "../image"
+  image_name = var.image_name
 }
 
 
