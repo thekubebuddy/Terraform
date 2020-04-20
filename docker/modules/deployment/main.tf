@@ -1,9 +1,12 @@
-module "image" {
+module "image_1" {
   source     = "../image"
-  my_count   = var.my_count
-  image_name = "${var.list_of_images[my_count.index % length(var.list_of_images)]}"
+  image_name = var.list_of_images[0]
 }
 
+module "image_2" {
+  source     = "../image"
+  image_name = var.list_of_images[1]
+}
 
 module "ghost_container" {
   source         = "../container"
