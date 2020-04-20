@@ -1,7 +1,12 @@
 module "image" {
-  source     = "../image"
-  count      = length(var.image_name)
-  image_name = "${var.image_name[count.index]}"
+  source = "../image"
+  dynamic "image_name" {
+    for_each = var.image_name
+    content {
+      image_name = image_name.value
+    }
+  }
+
 }
 
 
