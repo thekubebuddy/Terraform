@@ -3,14 +3,9 @@ variable "container_name" {
   default     = "ghost_container"
 }
 
-variable "int_port" {
-  description = "describe your variable"
-  default     = "2368"
-}
-variable "ext_port" {
-  description = "describe your variable"
-  default     = "8081"
-}
+variable "image" {}
+variable "int_port" {}
+variable "ext_port" {}
 
 
 
