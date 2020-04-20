@@ -1,6 +1,7 @@
 module "image" {
   source     = "../image"
-  image_name = var.image_name
+  count      = length(var.image_name)
+  image_name = var.image_name[count.index]
 }
 
 
