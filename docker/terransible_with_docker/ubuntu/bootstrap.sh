@@ -11,4 +11,4 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/
 apt-get update -y
 apt-get install -y docker-ce docker-ce-cli containerd.io
 curl -O https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip && unzip terraform_0.12.24_linux_amd64.zip -d /usr/local/bin/
-
+terraform -install-autocomplete

@@ -1,6 +1,6 @@
 # Download the latest Ghost image
 resource "docker_image" "image_id" {
-  name         = "ubuntu:latest"
+  name         = "ubuntu:18.04"
   keep_locally = true
 }
 
