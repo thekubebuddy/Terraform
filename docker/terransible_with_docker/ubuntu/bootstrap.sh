@@ -1,9 +1,9 @@
 #!/bin/bash
 # installing the 
-apt-get update && apt install software-properties-common -y
+apt-get update && apt install software-properties-common unzip -y
 apt-add-repository ppa:ansible/ansible -y
 apt update
-apt install ansible
+apt install ansible -y
 # installing docker and terraform
 apt-get update -y && apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey
