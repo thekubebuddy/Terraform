@@ -1,6 +1,6 @@
 #!/bin/bash
 # installing the 
-apt-get update -y && apt install software-properties-common unzip git vim openssh-server -y
+apt-get update -y && apt install software-properties-common unzip git vim openssh-server sshpass -y
 apt-add-repository ppa:ansible/ansible -y
 apt update
 apt install ansible -y
