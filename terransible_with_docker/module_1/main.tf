@@ -41,16 +41,11 @@ resource "docker_container" "ubuntu_pod" {
   image   = docker_image.image_id.latest
   command = ["/bin/sleep", "infinity"]
 
-
-}
-
-
-provider "null_resources" {
-  count = 2
   provisioner "local-exec" {
     command = <<EOD
-docker cp ./bootstrap.sh ${docker_container.ubuntu_pod[count.index].name}:/tmp/ 
+echo ${docker_container.ubuntu_pod.name}
 EOF
 EOD
   }
 }
+
