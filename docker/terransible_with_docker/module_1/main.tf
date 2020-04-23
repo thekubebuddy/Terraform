@@ -13,7 +13,7 @@ resource "docker_container" "ubuntu_pod_1" {
   provisioner "local-exec" {
     command = <<EOD
 cat <<EOF>>docker_hosts
-[ubuntu]
+[${docker_container.ubuntu_pod_1.name}]
 ${docker_container.ubuntu_pod_1.ip_address}
 EOD
   }

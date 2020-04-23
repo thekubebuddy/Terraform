@@ -1,6 +1,6 @@
 #!/bin/bash
 # installing the 
-apt-get update -y && apt install software-properties-common unzip git -y
+apt-get update -y && apt install software-properties-common unzip git vim openssh-server -y
 apt-add-repository ppa:ansible/ansible -y
 apt update
 apt install ansible -y
@@ -11,3 +11,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/
 apt-get install -y docker-ce docker-ce-cli containerd.io
 curl -O https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip && unzip terraform_0.12.24_linux_amd64.zip -d /usr/local/bin/
 terraform -install-autocomplete
+service ssh start
+# Configuring passwordless ssh witin container
+ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa 2>/dev/null <<< y >/dev/null
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
