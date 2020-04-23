@@ -58,7 +58,10 @@ resource "null_resource" "cluster" {
     # command = "bootstrap-cluster.sh ${join(" ", docker_container.ubuntu_pod.*.name)}"
     command = <<EOD
   echo ${join(" ", docker_container.ubuntu_pod.*.name)}
-  docker cp ./bootstrap.sh ${join(" ", docker_container.ubuntu_pod.*.name)}:/tmp/ 
+  for x in ${join(" ", docker_container.ubuntu_pod.*.name)}
+  do
+  echo $x
+  done
   EOF
   EOD
   }
