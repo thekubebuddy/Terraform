@@ -13,6 +13,18 @@ resource "docker_container" "container_1" {
     external = var.external_port
   }
   command = var.command
+
+  provisioner "local-exec" {
+    command = <<EOD
+cat <<EOF>> docker_host
+[blog_container]
+${docker_container.container_1.ip_address}
+EOF
+EOD
+  }
+
+
+
 }
 
 resource "null_resource" "null_id" {

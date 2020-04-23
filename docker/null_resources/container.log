@@ -1,0 +1,12 @@
+bootstrap.sh
+Get:1 http://archive.ubuntu.com/ubuntu eoan InRelease [255 kB]
+Get:2 http://security.ubuntu.com/ubuntu eoan-security InRelease [97.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu eoan-updates InRelease [97.5 kB]
+Get:4 http://security.ubuntu.com/ubuntu eoan-security/main amd64 Packages [239 kB]
+Get:5 http://archive.ubuntu.com/ubuntu eoan-backports InRelease [88.8 kB]
+Get:6 http://security.ubuntu.com/ubuntu eoan-security/multiverse amd64 Packages [1079 B]
+Get:7 http://security.ubuntu.com/ubuntu eoan-security/universe amd64 Packages [203 kB]
+Get:8 http://security.ubuntu.com/ubuntu eoan-security/restricted amd64 Packages [19.0 kB]
+Get:9 http://archive.ubuntu.com/ubuntu eoan/multiverse amd64 Packages [188 kB]
+Get:10 http://archive.ubuntu.com/ubuntu eoan/restricted amd64 Packages [22.7 kB]
+Get:11 http://archive.ubuntu.com/ubuntu eoan/universe amd64 Packages [11.6 MB]

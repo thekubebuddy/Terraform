@@ -1,24 +1,20 @@
 # Download the latest Ghost image
 resource "docker_image" "image_id" {
-  name         = "ghost:latest"
+  name         = "ubuntu:latest"
   keep_locally = true
 }
 
 
 # Start the Container
-resource "docker_container" "container_id" {
-  name  = "ghost_blog"
-  image = docker_image.image_id.latest
-  ports {
-    internal = "2368"
-    external = "8081"
-  }
-
+resource "docker_container" "ubuntu_pod" {
+  name    = "ubuntu"
+  image   = docker_image.image_id.latest
+  command = "sleep infinity'"
   provisioner "local-exec" {
     command = <<EOD
 cat <<EOF>>docker_host
-[ghost_blog]
-${docker_container.container_id.ip_address}
+[ubuntu]
+${docker_container.ubuntu_pod.ip_address}
 EOD
   }
 
