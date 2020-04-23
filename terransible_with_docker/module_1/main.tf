@@ -37,7 +37,7 @@ EOD
 
 resource "docker_container" "ubuntu_pod" {
   count   = 2
-  name    = "ubuntu_pod_${count}"
+  name    = "ubuntu_pod_${count.index}"
   image   = docker_image.image_id.latest
   command = ["/bin/sleep", "infinity"]
 
