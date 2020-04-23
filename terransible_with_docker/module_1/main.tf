@@ -63,14 +63,19 @@ do
 echo $container
 docker cp ./bootstrap.sh $container:/tmp/ 
 done
-# docker exec ${docker_container.ubuntu_pod_1.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log
-# rm ~/.ssh/known_hosts
-# sshpass -p 'root123' ssh-copy-id root@${docker_container.ubuntu_pod_1.ip_address} -o StrictHostKeyChecking=no
-# cat <<EOF>docker_hosts
-# [${docker_container.ubuntu_pod_1.name}]
-# ${docker_container.ubuntu_pod_1.ip_address}
-# ansible ${docker_container.ubuntu_pod_1.name} -i docker_hosts -m ping
-
 EOD
   }
 }
+# docker cp ./bootstrap.sh ${docker_container.ubuntu_pod_1.name}:/tmp/ 
+
+# docker exec ${docker_container.ubuntu_pod_1.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log
+
+# rm ~/.ssh/known_hosts
+
+# sshpass -p 'root123' ssh-copy-id root@${docker_container.ubuntu_pod_1.ip_address} -o StrictHostKeyChecking=no
+
+# cat <<EOF>docker_hosts
+# [${docker_container.ubuntu_pod_1.name}]
+# ${docker_container.ubuntu_pod_1.ip_address}
+# EOF
+# ansible ${docker_container.ubuntu_pod_1.name} -i docker_hosts -m ping
