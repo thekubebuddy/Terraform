@@ -41,22 +41,22 @@ resource "docker_container" "ubuntu_pod" {
   image   = docker_image.image_id.latest
   command = ["/bin/sleep", "infinity"]
 
-  provisioner "local-exec" {
-    command = <<EOD
-docker cp ./bootstrap.sh ${docker_container.ubuntu_pod.name}:/tmp/ 
+  #   provisioner "local-exec" {
+  #     command = <<EOD
+  # docker cp ./bootstrap.sh ${docker_container.ubuntu_pod.name}:/tmp/ 
 
-docker exec ${docker_container.ubuntu_pod.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log
+  # docker exec ${docker_container.ubuntu_pod.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log
 
-rm ~/.ssh/known_hosts
+  # rm ~/.ssh/known_hosts
 
-sshpass -p 'root123' ssh-copy-id root@${docker_container.ubuntu_pod.ip_address} -o StrictHostKeyChecking=no
+  # sshpass -p 'root123' ssh-copy-id root@${docker_container.ubuntu_pod.ip_address} -o StrictHostKeyChecking=no
 
-cat <<EOF>docker_hosts
-[${docker_container.ubuntu_pod.name}]
-${docker_container.ubuntu_pod.ip_address}
-EOF
-ansible ${docker_container.ubuntu_pod.name} -i docker_hosts -m ping
-EOD
-  }
+  # cat <<EOF>docker_hosts
+  # [${docker_container.ubuntu_pod.name}]
+  # ${docker_container.ubuntu_pod.ip_address}
+  # EOF
+  # ansible ${docker_container.ubuntu_pod.name} -i docker_hosts -m ping
+  # EOD
+  #   }
 
 }
