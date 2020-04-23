@@ -1,6 +1,6 @@
 #!/bin/bash
 # installing the 
-apt-get update && apt install software-properties-common unzip -y
+apt-get update && apt install software-properties-common unzip git -y
 apt-add-repository ppa:ansible/ansible -y
 apt update
 apt install ansible -y
