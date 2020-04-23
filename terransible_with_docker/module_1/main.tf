@@ -62,7 +62,6 @@ for x in ${join(" ", docker_container.ubuntu_pod.*.name)}
 do
 echo $x
 done
-EOF
 EOD
   }
 }
