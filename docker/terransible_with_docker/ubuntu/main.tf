@@ -17,6 +17,11 @@ cat <<EOF>>docker_host
 ${docker_container.ubuntu_pod.ip_address}
 EOD
   }
+  # Binding the docker sock with the container
+  volumes {
+    host_path      = "/var/run/docker.sock"
+    container_path = "/var/run/docker.sock"
+  }
 
 }
 
