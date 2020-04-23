@@ -9,7 +9,7 @@ resource "docker_image" "image_id" {
 resource "docker_container" "ubuntu_pod" {
   name    = "ubuntu"
   image   = docker_image.image_id.latest
-  command = "sleep infinity'"
+  command = "sleep infinity"
   provisioner "local-exec" {
     command = <<EOD
 cat <<EOF>>docker_host
