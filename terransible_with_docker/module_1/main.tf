@@ -43,7 +43,7 @@ resource "docker_container" "ubuntu_pod" {
 
   provisioner "local-exec" {
     command = <<EOD
-echo ${docker_container.ubuntu_pod.name}
+echo ${docker_container.ubuntu_pod[count.index + 1].name}
 EOF
 EOD
   }
