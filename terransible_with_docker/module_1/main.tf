@@ -7,7 +7,7 @@ resource "docker_image" "image_id" {
 
 # Start the Container
 resource "docker_container" "ubuntu_pod_1" {
-  name    = "ubuntu"
+  name    = "ubuntu_1"
   image   = docker_image.image_id.latest
   command = ["/bin/sleep", "infinity"]
   provisioner "local-exec" {
