@@ -41,11 +41,21 @@ resource "docker_container" "ubuntu_pod" {
   image   = docker_image.image_id.latest
   command = ["/bin/sleep", "infinity"]
 
-  provisioner "local-exec" {
-    command = <<EOD
-echo ${docker_container.ubuntu_pod[count.index + 1].name}
-EOF
-EOD
-  }
+  #   provisioner "local-exec" {
+  #     command = <<EOD
+  # echo ${docker_container.ubuntu_pod[count.index + 1].name}
+  # EOF
+  # EOD
+  #   }
 }
 
+
+
+resource "null_resource" "cluster" {
+
+  provisioner "local-exec" {
+    # Bootstrap script called with private_ip of each node in the clutser
+    # command = "bootstrap-cluster.sh ${join(" ", docker_container.ubuntu_pod.*.name)}"
+    command = "echo ${join(" ", docker_container.ubuntu_pod.*.name)}"
+  }
+}
