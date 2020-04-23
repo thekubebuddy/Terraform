@@ -57,12 +57,12 @@ resource "null_resource" "cluster" {
     # Bootstrap script called with private_ip of each node in the clutser
     # command = "bootstrap-cluster.sh ${join(" ", docker_container.ubuntu_pod.*.name)}"
     command = <<EOD
-  echo ${join(" ", docker_container.ubuntu_pod.*.name)}
-  for x in ${join(" ", docker_container.ubuntu_pod.*.name)}
-  do
-  echo $x
-  done
-  EOF
-  EOD
+echo ${join(" ", docker_container.ubuntu_pod.*.name)}
+for x in ${join(" ", docker_container.ubuntu_pod.*.name)}
+do
+echo $x
+done
+EOF
+EOD
   }
 }
