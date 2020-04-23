@@ -56,6 +56,10 @@ resource "null_resource" "cluster" {
   provisioner "local-exec" {
     # Bootstrap script called with private_ip of each node in the clutser
     # command = "bootstrap-cluster.sh ${join(" ", docker_container.ubuntu_pod.*.name)}"
-    command = "echo ${join(" ", docker_container.ubuntu_pod.*.name)}"
+    command = <<EOD
+  echo ${join(" ", docker_container.ubuntu_pod.*.name)}
+  docker cp ./bootstrap.sh ${join(" ", docker_container.ubuntu_pod.*.name)}:/tmp/ 
+  EOF
+  EOD
   }
 }
