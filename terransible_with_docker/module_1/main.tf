@@ -62,7 +62,7 @@ for container in ${join(" ", docker_container.ubuntu_pod.*.name)}
 do
 echo $container
 docker cp ./bootstrap.sh $container:/tmp/ 
-docker exec ${docker_container.ubuntu_pod_1.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log
+docker exec $container bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log
 rm ~/.ssh/known_hosts
 done
 EOD
