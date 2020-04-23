@@ -44,9 +44,13 @@ resource "docker_container" "ubuntu_pod" {
 
 }
 
-# provisioner "local-exec" {
-#   command = <<EOD
-# docker cp ./bootstrap.sh ${docker_container.ubuntu_pod[count.index].name}:/tmp/ 
-# EOF
-# EOD
-# }
+
+provider "null_resources" {
+  count = 2
+  provisioner "local-exec" {
+    command = <<EOD
+docker cp ./bootstrap.sh ${docker_container.ubuntu_pod[count.index].name}:/tmp/ 
+EOF
+EOD
+  }
+}
