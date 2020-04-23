@@ -27,7 +27,7 @@ EOD
 
 resource "null_resource" "null_id" {
   provisioner "local-exec" {
-    command = "docker cp ./bootstrap.sh ${docker_container.ubuntu_pod.name}:/tmp/ && docker exec ${docker_container.ubuntu_pod.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh'"
+    command = "docker cp ./bootstrap.sh ${docker_container.ubuntu_pod.name}:/tmp/ && docker exec ${docker_container.ubuntu_pod.name} bash -c 'ls /tmp/;chmod +x /tmp/bootstrap.sh;/tmp/bootstrap.sh' | tee container.log"
   }
 }
 
