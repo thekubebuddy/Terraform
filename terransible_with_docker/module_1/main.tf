@@ -40,13 +40,6 @@ resource "docker_container" "ubuntu_pod" {
   name    = "ubuntu_pod_${count.index}"
   image   = docker_image.image_id.latest
   command = ["/bin/sleep", "infinity"]
-
-  #   provisioner "local-exec" {
-  #     command = <<EOD
-  # echo ${docker_container.ubuntu_pod[count.index + 1].name}
-  # EOF
-  # EOD
-  #   }
 }
 
 

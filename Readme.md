@@ -19,6 +19,7 @@ Table of Content
 # About Terraform
 
 1. Its Tool for building, changing and versioning infrastructure safely and efficiently.
+Blue-print for the datacenter
 2. Terraform similar to google's deployment manager or AWS's Cloud Formation stack which are native
 to those cloud Platform.
 3. Benifits of Terraform:
@@ -30,6 +31,8 @@ services within the selected  cloud provider.
 5. Supported for Multi-cloud Developement
 6. It Uses HCL(hashicorp config. language), which is json compatible
 7. Large comminity of Support, it chnged the way we work in DevOps
+
+####[Terraform Intro](https://youtu.be/h970ZBgKINg)
 
 # Understanding init, plan and apply
 
@@ -133,3 +136,4 @@ terraform -install-autocomplete
 * Reusable configurations called as module, that can be reused from other terraform script
 
 
+# Terraform refresh 
