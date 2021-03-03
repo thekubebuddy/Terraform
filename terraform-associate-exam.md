@@ -6,7 +6,14 @@ Table of Content
 4. [TF CLI Cheetsheet](https://github.com/thekubebuddy/terraform#terraform-cheetsheets)
 
 
-### 1. Exam pattern(question type, duration, total question,online-offline, rescehduling, system requirement)
+### 1. Exam pattern
+* questions type
+* duration
+* total question
+* online-offline
+* system requirement
+* rescehduling policy
+* [Registration link](https://www.hashicorp.com/certification/terraform-associate)
 
 ### 2. Experience
 
