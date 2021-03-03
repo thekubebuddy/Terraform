@@ -6,9 +6,9 @@ Table of Content
 4. TF CLI Cheetsheet
 
 
-1. Exam pattern(question type, duration, total question,online-offline, rescehduling, system requirement)
+### 1. Exam pattern(question type, duration, total question,online-offline, rescehduling, system requirement)
 
-2. Experience
+### 2. Experience
 
 * Exam level - Will be easy for the one who used to touched TF cli in day-to-day life routine
 * Difficulty Level of questions - some of the question can be answered within seconds, but some can be *Fuzzy* & tricky CLI command based. 
@@ -16,7 +16,7 @@ Table of Content
 > It depends on one's understanding capability & interest, the above are just estimates.
 * Tips - try to review/write the tf code or the terraform registry module, as much as possible. Try to make changes as within those community modules as per your usecase.
 
-3. Where do I start
+### 3. Where do I start
 
 * The official study guide.
 https://learn.hashicorp.com/tutorials/terraform/associate-study?in=terraform/certification
@@ -27,6 +27,6 @@ https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terrafor
 https://nedinthecloud.com/2020/05/04/the-terraform-certified-study-guide/
 
 
-4. [Terraform cheetsheet](https://github.com/thekubebuddy/terraform#terraform-cheetsheets)
+### 4. [Terraform cheetsheet](https://github.com/thekubebuddy/terraform#terraform-cheetsheets)
 
-5. [tf notes](./tf-notes.md)
+### 5. [tf notes](./tf-notes.md)
