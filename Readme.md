@@ -5,12 +5,12 @@ Table of Content
 * [Launch simple VPC with terraform](aws/hello-vpc)
 * [Launch VPC with dynamic subnets provisioning terraform](aws/dynamic-vpc)
 * Terraform with docker
-	* [Maps and lookups]
-	* [Terraform workspaces]
-	* [Deploying a an apache2 configured configured container with Terraform "null_resource" and "local-exec/remote-exec" provisioner]
-	* [Terraform "module" with dokcer]
-	* [Deploying terraform-infra with Jenkins(pipeline)+docker]
-	* [Deploying terraform resources with jenkins pipelines] 
+	* Maps and lookups
+	* Terraform workspaces
+	* Deploying a an apache2 configured configured container with Terraform "null_resource" and "local-exec/remote-exec" provisioner]
+	* Terraform "module" with dokcer
+	* Deploying terraform-infra with Jenkins(pipeline)+docker
+	* Deploying terraform resources with jenkins pipelines 
 	https://www.terraform.io/docs/providers/null/resource.html
 	https://www.terraform.io/docs/provisioners/remote-exec.html
 	https://devops.ionos.com/community/provisioning-basics-with-terraform/
@@ -32,7 +32,7 @@ services within the selected  cloud provider.
 6. It Uses HCL(hashicorp config. language), which is json compatible
 7. Large comminity of Support, it chnged the way we work in DevOps
 
-####[Terraform Intro](https://youtu.be/h970ZBgKINg)
+#### [Terraform Workflow](https://youtu.be/h970ZBgKINg)
 
 # Understanding init, plan and apply
 
@@ -109,31 +109,78 @@ terraform workspace select workspace2
 
 # Terraform cheetsheets
 ```
-terraform init
-terraform apply
-terraform apply -auto-approve
+# upgrading the modules & downloading the providers
+terraform init -upgrade 
+
+# terraform init with backend initialization & module code download skipping the plugin
+terraform init -get-plugin=false 
+
+# Reusing or sourcing the pre-downloaded the provider plugins for terraform code(storage efficient initialization)
+terraform init -plugin-dir=/path/to/the/dir/terraform.d/plugins/x86_64
+
+
+#  Reviewing the changes with saving the plan output to the "tfplan" file, with "colorless" console output(CI usecase)
+terraform plan -out tfplan -no-color 
+
+# Applying the state file with no approval
+terraform apply tfplan 
+
+# Populating the destroy plane for the know tf managed resources
+terraform plan -destroy 
+
+# Applying the infra changes with auto-approving request, with parralelism level 20 with no refreshing the state
+terraform apply -auto-approve -parralelism=20 -refresh=false
+
+# List all of the resources within the tf state file
 terraform state list
-terraform validate # vlidates all of the configuration file
-terraform destroy--> flushing all of the infra
-terraform console  # getting the terraform infra console
-terraform taint #Manually marks a resource for recreation
-terraform untaint #Manually unmarks a resource as tainted
-terraform validate #Validates the Terraform files
-terraform version #Prints the Terraform version
+
+# Reviewing the state for a particular resource within the state file 
+terraform state show <resourc-id>
+
+# Validating all of the configuration file
+terraform validate 
+
+# Canonically formating the terraform configuration file
+terraform fmt 
+terraform fmt -recursive=true -write=false
+
+# Destroying the provisioned resources
+terraform destroy 
+
+# Interactive tf console for the interpolation experimentations. 
+terraform console  
+
+# Manually marks a resource for recreation in the next apply
+terraform taint <resource-id> 
+
+# Manually unmarks a resource as tainted resources
+terraform untaint <resource-id>
+
+# List all of the providers being used for the terraform code
+terraform provider
+
+# Same code different state file
+terraform workspace list/show/new/select/delete
+
+# Importing an un-managed resource
+terraform import <config-resource-ref> <actual-resource-self-link>
+
+# For setting the detailed logging during plan or apply.
+export TF_LOG="TRACE" #TRANCE, DEBUG, INFO, WARN, RANDOM
+
+# Exporting the logs for a particular plan,apply
+export TF_LOG_PATH="./tf-plan.log"
+
+# Setting the variables value as env variables, which can be used while tf plan & apply  
+export TF_VAR_account_id="acc-1234hello" 
+
+# will specify additional arguments to the command-line. For example
+export TF_CLI_ARGS_apply="-refresh=false" 
+
+
+
+# bash autocomplete
+terraform -install-autocomplete
 terraform -uninstall-autocomplete
-terraform -install-autocomplete
-
-terraform plane -out=tfplan1
-terraform apply tfplan1
-
-export TF_LOG= 
 ```
-### bash autocomplete
-```
-terraform workspace #Workspace management
-terraform -install-autocomplete
-```
-* Reusable configurations called as module, that can be reused from other terraform script
 
-
-# Terraform refresh 
