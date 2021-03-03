@@ -19,12 +19,17 @@ Table of Content
 ### 3. Where do I start
 
 * The official study guide.
+
 https://learn.hashicorp.com/tutorials/terraform/associate-study?in=terraform/certification
 
 * Other usefull references: 
+
 https://jayendrapatil.com/hashicorp-certified-terraform-associate-learning-path/
+
 https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a
+
 https://nedinthecloud.com/2020/05/04/the-terraform-certified-study-guide/
+
 
 
 ### 4. [Terraform cheetsheet](https://github.com/thekubebuddy/terraform#terraform-cheetsheets)
