@@ -4,17 +4,7 @@ Table of Content
 * [Launch Aws ec2 instance with terraform\(hello-world\)](aws/hello-ec2)
 * [Launch simple VPC with terraform](aws/hello-vpc)
 * [Launch VPC with dynamic subnets provisioning terraform](aws/dynamic-vpc)
-* Terraform with docker
-	* Maps and lookups
-	* Terraform workspaces
-	* Deploying a an apache2 configured configured container with Terraform "null_resource" and "local-exec/remote-exec" provisioner]
-	* Terraform "module" with dokcer
-	* Deploying terraform-infra with Jenkins(pipeline)+docker
-	* Deploying terraform resources with jenkins pipelines 
-	https://www.terraform.io/docs/providers/null/resource.html
-	https://www.terraform.io/docs/provisioners/remote-exec.html
-	https://devops.ionos.com/community/provisioning-basics-with-terraform/
-
+* [Terraform cheetsheet](#terraform-cheetsheets)
 
 ### About Terraform
 
@@ -91,7 +81,7 @@ terraform apply  'instance_name=prod-ec2-instance-1'
 terraform destroy  'instance_name=prod-ec2-instance-1'
 ```
 
-# Terraform cheetsheets
+### Terraform cheetsheets
 ```
 # upgrading the modules & downloading the providers
 terraform init -upgrade 
