@@ -83,7 +83,7 @@ terraform destroy  'instance_name=prod-ec2-instance-1'
 
 ### Terraform cheetsheets
 ```
-# upgrading the modules & downloading the providers
+# upgrading the modules & downloading the latest providers
 terraform init -upgrade 
 
 # terraform init with backend initialization & module code download skipping the plugin
