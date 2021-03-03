@@ -16,7 +16,7 @@ Table of Content
 	https://devops.ionos.com/community/provisioning-basics-with-terraform/
 
 
-# About Terraform
+### About Terraform
 
 1. Its Tool for building, changing and versioning infrastructure safely and efficiently.
 Blue-print for the datacenter
@@ -33,8 +33,6 @@ services within the selected  cloud provider.
 7. Large comminity of Support, it chnged the way we work in DevOps
 
 #### [Terraform Workflow](https://youtu.be/h970ZBgKINg)
-
-# Understanding init, plan and apply
 
 8.1 terraform init
 * It is used to initialize any working directory which contains the config file (\*.tf) 
@@ -75,14 +73,12 @@ variable "zones"
 
 
 
-# Output and Input variables for terraform
+### Output and Input variables for terraform
 ```
 output "external_ip"
 {
 	value=ec2_instance.instance_name.external_ip
 }
-
-
 ```
 ```
 variable "instance_name"
@@ -91,21 +87,9 @@ variable "instance_name"
 }
 ```
 ```
-terraform apply -ver 'instance_name=prod-ec2-instance-1'
-terraform destroy -ver 'instance_name=prod-ec2-instance-1'
+terraform apply  'instance_name=prod-ec2-instance-1'
+terraform destroy  'instance_name=prod-ec2-instance-1'
 ```
-
-
-# Terraform Workspaces
-Its becomes easy when you have two differnt environments to work-on with
-```
-terraform workspace
-terraform workspace list
-terraform workspace show
-terraform workspace new workspace1
-terraform workspace select workspace2
-```
-
 
 # Terraform cheetsheets
 ```
