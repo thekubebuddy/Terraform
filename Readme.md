@@ -159,9 +159,40 @@ terraform -uninstall-autocomplete
 ```
 
 
+### Scratch Pad
+```hcl
+[ for k,v in local.vnet_yaml_data : k ]
+[ for network_key, network in local.vnet_yaml_data : network_key]
+[ for network_key, network in local.vnet_yaml_data : network]
+[ for network_key, network in local.vnet_yaml_data : [for subnet in network.Subnets : subnet.Name] ]
+[ for subnet in local.vnet_yaml_data.k8s-vnet.Subnets : { name = subnet.Name } ]
+[ for subnet in local.vnet_yaml_data.k8s-vnet.Subnets : { name = subnet.Name, cidr_address = cidrsubnet("10.12.0.0/16", 8, subnet.Priority) } ]
+[ for network_key, network in local.vnet_yaml_data : [ for subnet in network.Subnets : { name = subnet.Name, cidr_address = cidrsubnet(network.AddressSpace, 8, subnet.Priority), vnet = network_key } ] if network_key != "hub-vnet" ]
+[ for network_key, network in local.vnet_yaml_data : [ for subnet in network.Subnets : { name = subnet.Name, cidr_address = cidrsubnet(network.AddressSpace, 8, subnet.Priority), vnet = network_key } ] ]
 
 
-### Reference:
+[ for k,v in local.pg_roles_map : k ]
+{ for k,v in local.pg_roles_map : k=>v }
+[ for role_key,roles in local.pg_roles_map : role_key ]
+[ for role_key, network in local.pg_roles_map : network_key if network_key != "hub-vnet" ]
+[ for role_key,roles in local.pg_roles_map : role_key if role_key != "role_dba" ]
+# Get all of users_role from the "pg_roles_map"
+flatten([ for network_key, network in local.vnet_json_data : network.Subnets ])
+flatten([ for role_key, roles in local.pg_roles_map : roles.pg_users_role ])
+# Getting the already created role_names(keys)
+[ for subnet in local.vnet_json_data.k8s-vnet.Subnets : subnet.Name ]
+[ for role_key,roles in local.pg_roles_map : role_key ]
+# Getting 
+flatten([ for role_key, roles in local.pg_roles_map : {name=role_key, user_roles=roles.pg_users_role, pg_role_passwd=roles.pg_role_passwd, pg_role_validity=roles.pg_role_validity} ])
+flatten([ for role_key, roles in local.pg_roles_map : {name=role_key, user_roles=roles.pg_users_role} ])
+{ for role_key, roles in local.pg_roles_map : role_key=>roles.pg_users_role }
+**map-one
+flatten([ for role_key, roles in local.pg_roles_map : {db_role=role_key, user_roles=roles.pg_users_role} ])
+** total-roles that needs to be created:
+total_role=flatten([ for role_key, roles in local.pg_roles_map : roles.pg_users_role ])
+```
+
+#### Reference:
 ```
 https://serverfault.com/questions/833810/terraform-use-nested-loops-with-count
 https://github.com/hashicorp/terraform/issues/22263#issuecomment-563320529
