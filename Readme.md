@@ -158,3 +158,13 @@ terraform -install-autocomplete
 terraform -uninstall-autocomplete
 ```
 
+
+
+
+### Reference:
+```
+https://serverfault.com/questions/833810/terraform-use-nested-loops-with-count
+https://github.com/hashicorp/terraform/issues/22263#issuecomment-563320529
+https://discuss.hashicorp.com/t/produce-maps-from-list-of-strings-of-a-map/2197
+https://stackoverflow.com/questions/62679195/terraform-looping-in-list-of-map
+```
